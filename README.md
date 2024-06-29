@@ -6,7 +6,6 @@ raspi use four raspberrypi 4B, RockyLinuxRpi_8-latest.img.xz
   
 ansible-navigator run ping-all.yml  
 
-'''
 Result Host                     Number Changed Task                            Task action          Duration  
  0│Ok     controller.allsafe.local      0 False   Gathering Facts                 gather_facts               3s  
  1│Ok     raspi01.allsafe.local         1 False   Gathering Facts                 gather_facts               4s  
@@ -18,4 +17,3 @@ Result Host                     Number Changed Task                            T
  7│Ok     raspi02.allsafe.local         7 False   Test the connectivity to each seansible.builtin.ping       2s  
  8│Ok     raspi03.allsafe.local         8 False   Test the connectivity to each seansible.builtin.ping       1s  
  9│Ok     raspi04.allsafe.local         9 False   Test the connectivity to each seansible.builtin.ping       1s  
- '''
