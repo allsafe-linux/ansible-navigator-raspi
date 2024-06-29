@@ -18,3 +18,4 @@ Result Host                     Number Changed Task                            T
  7│Ok     raspi02.allsafe.local         7 False   Test the connectivity to each seansible.builtin.ping       2s  
  8│Ok     raspi03.allsafe.local         8 False   Test the connectivity to each seansible.builtin.ping       1s  
  9│Ok     raspi04.allsafe.local         9 False   Test the connectivity to each seansible.builtin.ping       1s  
+ '''
