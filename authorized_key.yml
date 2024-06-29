@@ -1,0 +1,13 @@
+---
+
+- name: Public key is deployed to managed hosts for Ansible
+  hosts: all
+
+  tasks:
+    - name: Ensure key is in rocky's ~/.ssh/authorized_hosts
+      ansible.posix.authorized_key:
+        user: rocky
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - ~/.ssh/id_rsa.pub
