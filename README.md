@@ -1,10 +1,12 @@
 # ansible-navigator-raspi  
 RHCA-DO374-ansible-navigator-raspi  
-
+  
 controller in VM, rhel-8.9-x86_64-dvd.iso  
 raspi use four raspberrypi 4B, RockyLinuxRpi_8-latest.img.xz  
-
+  
 ansible-navigator run ping-all.yml  
+
+'''
 Result Host                     Number Changed Task                            Task action          Duration  
  0│Ok     controller.allsafe.local      0 False   Gathering Facts                 gather_facts               3s  
  1│Ok     raspi01.allsafe.local         1 False   Gathering Facts                 gather_facts               4s  
