@@ -1,0 +1,38 @@
+---
+- name: Execute DNF commands
+  hosts: myself
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Disable codeready-builder-for-rhel-8-x86_64-rpms
+      command: subscription-manager repos --disable codeready-builder-for-rhel-8-x86_64-rpms
+    
+    - name: Enable codeready-builder-for-rhel-8-x86_64-rpms
+      command: subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+    
+    - name: Import RPM-GPG-KEY-EPEL-8
+      rpm_key:
+        key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
+        state: present
+
+    - name: Install EPEL-Release-latest-latest-8.noarch.rpm
+      ansible.builtin.dnf:
+        name: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm'
+        state: present
+
+- name: Execute DNF commands
+  hosts: East_datacenter,West_datacenter
+  become: true
+
+  tasks:
+    - name: Disabled PowerTools repository
+      command: dnf config-manager --set-disabled powertools
+
+    - name: Enable PowerTools repository
+      command: dnf config-manager --set-enabled powertools
+
+    - name: Install EPEL-Release-latest-latest-8.noarch.rpm
+      ansible.builtin.dnf:
+        name: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm'
+        state: present

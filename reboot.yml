@@ -1,0 +1,13 @@
+---
+- name: Restart all servers
+  hosts: East_datacenter West_datacenter
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Now Reboot all servers!!!
+      ansible.builtin.reboot:
+        pre_reboot_delay: 3
+        test_command: pwd
+      
+
